@@ -19,7 +19,10 @@
     height: 100%;
     width: 100%;
     border: 1px solid gray;
-    background-color: salmon;
     padding: 0;
     margin: 0;
+}
+
+.colored{
+    background-color: salmon;
 }
