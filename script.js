@@ -20,12 +20,31 @@ function createGrid(){
     }
 }
 
+function removeGrid(){
+    for(row = 0; row < gridSize; row++){
+        const rowDiv = document.querySelector(".row");
+        for(column = 0; column < gridSize; column++){
+            const columnDiv = document.querySelector(".square");
+            rowDiv.removeChild(columnDiv);
+        }
+        container.removeChild(rowDiv);
+    }
+}
+
 createGrid();
 
 
 const btn = document.querySelector("button");
+let newGridSize;
+
 btn.addEventListener("click", () => {
-    gridSize = prompt("Enter the grid size: ");
+    newGridSize = prompt("Enter the grid size: ");
+    while(newGridSize > 64){
+        newGridSize = prompt("Size too large. Please enter a grid size less than 64: ");
+    }
+    removeGrid();
+    gridSize = newGridSize;
     createGrid();    
     }
 );
+
